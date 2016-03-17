@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Groceries</title>
+  </head>
+  <body>
+    <h1>Groceries</h1>
+      <ul>
+        <% @grocery_list.each do |grocery| %>
+          <% if grocery[:quantity].nil? || grocery[:quantity].empty? %>
+            <li><a href="/groceries/<%= grocery[:name] %>"><%= grocery[:name] %>
+              </li></a>
+          <% else %>
+            <li><a href="/groceries/<%= grocery[:name] %>"><%= grocery[:name] %>
+              (<%= grocery[:quantity] %>)</li></a>
+          <% end %>
+        <% end %>
+      </ul>
+
+      <form action="/groceries" method="post">
+        <label for="grocery">Name</label>
+        <input type="text" id="grocery" name="grocery" required>
+        <label for="quantity">Quantity</label>
+        <input type="text" id="quantity" name="quantity">
+
+        <input type="submit" value="Add"/>
+      </form>
+  </body>
+</html>

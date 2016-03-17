@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @grocery %></title>
+  </head>
+  <body>
+    <% if @quantity.empty? %>
+      <%= @grocery %>
+    <% else %>
+      <%= @grocery %>. YOU NEED <%= @quantity %> OF THESE!
+    <% end %>
+  </body>
+</html>
